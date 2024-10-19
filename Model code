@@ -3,8 +3,8 @@ MODEL
 
 
 
-
 COMMENT> ####################################### Shock to co2 tax agricultrual sector ##########################################
+
 
 
 
@@ -101,10 +101,6 @@ IDENTITY> tot_env_tax_exc_rent_1_S2
 EQ> tot_env_tax_exc_rent_1_S2 =  0.0000000003871591 * Co2E_u_1
 
 
-
-
-
-
 COMMENT> Total environmental taxes industry 1
 IDENTITY> tot_env_tax_exc_rent_1_S5
 EQ> tot_env_tax_exc_rent_1_S5 =  0.0000000002623 * Co2E_u_1
@@ -122,11 +118,6 @@ EQ> tot_env_tax_exc_rent_1 =  tot_env_tax_exc_rent_1_S5
 IF> Scenario_2 <= 0 & Scenario_5 > 0
 
 
-COMMENT> 
-IDENTITY> tot_env_diff
-EQ> tot_env_diff = tot_env_tax_exc_rent_1 - tot_env_tax_exc_rent_1_base
-
-
 COMMENT> We can make a simple shock to the model by increasing government spending for one sector!
 IDENTITY> Scenario_2
 EQ> Scenario_2 = Scenario_2*1
@@ -135,10 +126,18 @@ COMMENT> We can make a simple shock to the model by increasing government spendi
 IDENTITY> Scenario_5
 EQ> Scenario_5 = Scenario_5*1
 
+COMMENT> ####################################### Shock to interrest rates ##########################################
+
+
+COMMENT> We can make a shock to interest rates
+IDENTITY> Scenario_3
+EQ> Scenario_3 = Scenario_3*1
 
 
 
-COMMENT> ####################################### Price indexes for final demand ####################################################################
+
+
+COMMENT> ####################################### Aggregate price indexes #######################################################################
 
 
 
@@ -383,7 +382,7 @@ EQ> pg = g/(gov_dom_1/pout_1 + gov_dom_2/pout_2 + gov_dom_3/pout_3 + gov_dom_4/p
 
 COMMENT> aggregate import price index (Data to compare with should be the one calculated in price indexes)
 IDENTITY> pim
-EQ> pim = im/((z_im_11 + z_im_12 + z_im_13 + z_im_14 + z_im_15 + z_im_16 + z_im_17 + z_im_18 + z_im_19 + c_im_1 + gov_im_1 + inv_im_1 + invent_im_1 + ex_im_1)/pim_1 + (z_im_21 + z_im_22 + z_im_23 + z_im_24 + z_im_25 + z_im_26 + z_im_27  + z_im_28  + z_im_29 + c_im_2 + gov_im_2 + inv_im_2 + invent_im_2 + ex_im_2)/pim_2 + (z_im_31 + z_im_32 + z_im_33 + z_im_34 + z_im_35 + z_im_36 + z_im_37 + z_im_38 + z_im_39 + c_im_3 + gov_im_3 + inv_im_3 + invent_im_3 + ex_im_3)/pim_3 + (z_im_41 + z_im_42 + z_im_43 + z_im_44 + z_im_45 + z_im_46 + z_im_47 + z_im_48 + z_im_49 + c_im_4 + gov_im_4 + inv_im_4 + invent_im_4 + ex_im_4)/pim_4 + (z_im_51 + z_im_52 + z_im_53 + z_im_54 + z_im_55 + z_im_56 + z_im_57 + z_im_58 + z_im_59 + c_im_5 + gov_im_5 + inv_im_5 + invent_im_5 + ex_im_5)/pim_5 + (z_im_61 + z_im_62 + z_im_63 + z_im_64 + z_im_65 + z_im_66 + z_im_67 + z_im_68 + z_im_69 + c_im_6 + gov_im_6 + inv_im_6 + invent_im_6 + ex_im_6)/pim_6 + (z_im_71 + z_im_72 + z_im_73 + z_im_74 + z_im_75 + z_im_76 + z_im_77 + z_im_78 + z_im_79 + c_im_7 + gov_im_7 + inv_im_7 + invent_im_7 + ex_im_7)/pim_7 + (z_im_81 + z_im_82 + z_im_83 + z_im_84 + z_im_85 + z_im_86 + z_im_87 + z_im_88 + z_im_89 + c_im_8 + gov_im_8 + inv_im_8 + invent_im_8 + ex_im_8)/pim_8 + (z_im_91 + z_im_92 + z_im_93 + z_im_94 + z_im_95 + z_im_96 + z_im_97 + z_im_98 + z_im_99 + c_im_9 + gov_im_9 + inv_im_9 + invent_im_9 + ex_im_9)/pim_9 + (z_im_un_1 + z_im_un_2 + z_im_un_3 + z_im_un_4 + z_im_un_5 + z_im_un_6+ z_im_un_7+ z_im_un_8+ z_im_un_9 + c_im_un + gov_im_un + inv_im_un + invent_im_un + ex_im_un)/pim_un)
+EQ> pim = im/((z_im_11 + z_im_12 + z_im_13 + z_im_14 + z_im_15 + z_im_16 + z_im_17 + z_im_18 + z_im_19 + c_im_1 + gov_im_1 + inv_im_1 + invent_im_1 + ex_im_1)/pim_1 + (z_im_21 + z_im_22 + z_im_23 + z_im_24 + z_im_25 + z_im_26 + z_im_27  + z_im_28  + z_im_29 + c_im_2 + gov_im_2 + inv_im_2 + invent_im_2 + ex_im_2)/pim_2 + (z_im_31 + z_im_32 + z_im_33 + z_im_34 + z_im_35 + z_im_36 + z_im_37 + z_im_38 + z_im_39 + c_im_3 + gov_im_3 + inv_im_3 + invent_im_3 + ex_im_3)/pim_3 + (z_im_41 + z_im_42 + z_im_43 + z_im_44 + z_im_45 + z_im_46 + z_im_47 + z_im_48 + z_im_49 + c_im_4 + gov_im_4 + inv_im_4 + invent_im_4 + ex_im_4)/pim_4 + (z_im_51 + z_im_52 + z_im_53 + z_im_54 + z_im_55 + z_im_56 + z_im_57 + z_im_58 + z_im_59 + c_im_5 + gov_im_5 + inv_im_5 + invent_im_5 + ex_im_5)/pim_5 + (z_im_61 + z_im_62 + z_im_63 + z_im_64 + z_im_65 + z_im_66 + z_im_67 + z_im_68 + z_im_69 + c_im_6 + gov_im_6 + inv_im_6 + invent_im_6 + ex_im_6)/pim_6 + (z_im_71 + z_im_72 + z_im_73 + z_im_74 + z_im_75 + z_im_76 + z_im_77 + z_im_78 + z_im_79 + c_im_7 + gov_im_7 + inv_im_7 + invent_im_7 + ex_im_7)/pim_7 + (z_im_81 + z_im_82 + z_im_83 + z_im_84 + z_im_85 + z_im_86 + z_im_87 + z_im_88 + z_im_89 + c_im_8 + gov_im_8 + inv_im_8 + invent_im_8 + ex_im_8)/pim_9 + (z_im_91 + z_im_92 + z_im_93 + z_im_94 + z_im_95 + z_im_96 + z_im_97 + z_im_98 + z_im_99 + c_im_9 + gov_im_9 + inv_im_9 + invent_im_9 + ex_im_9)/pim_9 + (z_im_un_1 + z_im_un_2 + z_im_un_3 + z_im_un_4 + z_im_un_5 + z_im_un_6+ z_im_un_7+ z_im_un_8+ z_im_un_9 + c_im_un + gov_im_un + inv_im_un + invent_im_un + ex_im_un)/pim_un)
 
 
 COMMENT> Consumer price for other consumption products (oth)
@@ -416,6 +415,11 @@ EQ> pim_180= c_180_im_tot/(c_180_im_1/pim_1  + c_180_im_2/pim_2  + c_180_im_3/pi
 
 
 
+
+
+COMMENT> Real exchange rate entire economy
+IDENTITY> rer
+EQ> rer = ppcon*xr/pf
 
 COMMENT> 
 IDENTITY> rer_1
@@ -852,54 +856,36 @@ EQ> rer_180 = ppcon_180*xr/pim_180
 
 
 
-COMMENT> 
-BEHAVIORAL> phi_c_oth
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_oth) = phi_0 + phi_1*TSLAG(LOG(rer_oth),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
 
-COMMENT> 
-BEHAVIORAL> phi_c_110
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_110) = phi_0 + phi_1*TSLAG(LOG(rer_110),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
 
-COMMENT> 
-BEHAVIORAL> phi_c_120
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_120) = phi_0 + phi_1*TSLAG(LOG(rer_120),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
+COMMENT> real exchange rate other consumption
+IDENTITY> phi_c_oth
+EQ> phi_c_oth = exp(-2.23305 + 0.85959*TSLAG(log(rer_oth),1)) + res_phi_c_oth
 
-COMMENT> 
-BEHAVIORAL> phi_c_130
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_130) = phi_0 + phi_1*TSLAG(LOG(rer_130),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
+COMMENT> real exchange rate other consumption
+IDENTITY> phi_c_110
+EQ> phi_c_110 = exp(-1.58428 + 4.25717*TSLAG(log(rer_110),1)) + res_phi_c_110
 
-COMMENT> 
-BEHAVIORAL> phi_c_140
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_140) = phi_0 + phi_1*TSLAG(LOG(rer_140),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
+COMMENT> real exchange rate other consumption
+IDENTITY> phi_c_120
+EQ> phi_c_120 = exp(-1.23635 + 3.36677*TSLAG(log(rer_120),1)) + res_phi_c_120
 
-COMMENT> 
-BEHAVIORAL> phi_c_160
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_160) = phi_0 + phi_1*TSLAG(LOG(rer_160),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
+COMMENT> real exchange rate other consumption
+IDENTITY> phi_c_130
+EQ> phi_c_130 = exp(-1.52292 + 1.50780*TSLAG(log(rer_130),1)) + res_phi_c_130
 
-COMMENT> 
-BEHAVIORAL> phi_c_180
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_180) = phi_0 + phi_1*TSLAG(LOG(rer_180),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
+COMMENT> real exchange rate other consumption
+IDENTITY> phi_c_140
+EQ> phi_c_140 = exp(-2.07058 + 1.62433*TSLAG(log(rer_140),1)) + res_phi_c_140
+
+COMMENT> real exchange rate other consumption
+IDENTITY> phi_c_160
+EQ> phi_c_160 = exp(-0.96607 + 1.23104*TSLAG(log(rer_160),1)) + res_phi_c_160
+
+COMMENT> real exchange rate other consumption
+IDENTITY> phi_c_180
+EQ> phi_c_180 = exp(-1.30254 + 3.45209*TSLAG(log(rer_180),1)) + res_phi_c_180
+
 
 
 COMMENT> ####################################### IO stuff ##########################################
@@ -2130,10 +2116,6 @@ IDENTITY> z_im_19
 EQ> z_im_19 = zk_im_19 * pim_1
 
 
-COMMENT> Import flows from industry 1 (NOM)
-IDENTITY> z_im_1_tot
-EQ> z_im_1_tot= z_im_11 + z_im_21 + z_im_31 + z_im_41 + z_im_51 + z_im_61 + z_im_71 + z_im_81 + z_im_91
-
 
 
 
@@ -2213,10 +2195,6 @@ COMMENT> Import flows from industry 2 (NOM)
 IDENTITY> z_im_29
 EQ> z_im_29 = zk_im_29 * pim_2
 
-
-COMMENT> Import flows from industry 2 (NOM)
-IDENTITY> z_im_2_tot
-EQ> z_im_2_tot= z_im_12 + z_im_22 + z_im_32 + z_im_42 + z_im_52 + z_im_62 + z_im_72 + z_im_82 + z_im_92
 
 
 
@@ -2299,10 +2277,6 @@ IDENTITY> z_im_39
 EQ> z_im_39 = zk_im_39 * pim_3
 
 
-COMMENT> Import flows from industry 2 (NOM)
-IDENTITY> z_im_3_tot
-EQ> z_im_3_tot= z_im_13 + z_im_23 + z_im_33 + z_im_43 + z_im_53 + z_im_63 + z_im_73 + z_im_83 + z_im_93
-
 
 
 COMMENT> Import flows from industry 1 (REAL)
@@ -2381,10 +2355,6 @@ COMMENT> Import flows from industry 4 (NOM)
 IDENTITY> z_im_49
 EQ> z_im_49 = zk_im_49 * pim_4
 
-
-COMMENT> Import flows from industry 2 (NOM)
-IDENTITY> z_im_4_tot
-EQ> z_im_4_tot= z_im_14 + z_im_24 + z_im_34 + z_im_44 + z_im_54 + z_im_64 + z_im_74 + z_im_84 + z_im_94
 
 
 
@@ -2465,9 +2435,6 @@ IDENTITY> z_im_59
 EQ> z_im_59 = zk_im_59 * pim_5
 
 
-COMMENT> Import flows from industry 2 (NOM)
-IDENTITY> z_im_5_tot
-EQ> z_im_5_tot= z_im_15 + z_im_25 + z_im_35 + z_im_45 + z_im_55 + z_im_65 + z_im_75 + z_im_85 + z_im_95
 
 
 COMMENT> Import flows from industry 1 (REAL)
@@ -2546,9 +2513,6 @@ IDENTITY> z_im_69
 EQ> z_im_69 = zk_im_69 * pim_6
 
 
-COMMENT> Import flows from industry 2 (NOM)
-IDENTITY> z_im_6_tot
-EQ> z_im_6_tot= z_im_16 + z_im_26 + z_im_36 + z_im_46 + z_im_56 + z_im_66 + z_im_76 + z_im_86 + z_im_96
 
 
 
@@ -2628,9 +2592,7 @@ IDENTITY> z_im_79
 EQ> z_im_79 = zk_im_79 * pim_7
 
 
-COMMENT> Import flows from industry 2 (NOM)
-IDENTITY> z_im_7_tot
-EQ> z_im_7_tot= z_im_17 + z_im_27 + z_im_37 + z_im_47 + z_im_57 + z_im_67 + z_im_77 + z_im_87 + z_im_97
+
 
 
 COMMENT> Import flows from industry 1 (REAL)
@@ -2709,9 +2671,7 @@ IDENTITY> z_im_89
 EQ> z_im_89 = zk_im_89 * pim_8
 
 
-COMMENT> Import flows from industry 2 (NOM)
-IDENTITY> z_im_8_tot
-EQ> z_im_8_tot= z_im_18 + z_im_28 + z_im_38 + z_im_48 + z_im_58 + z_im_68 + z_im_78 + z_im_88 + z_im_98
+
 
 
 
@@ -2790,10 +2750,6 @@ EQ> z_im_98 = zk_im_98 * pim_9
 COMMENT> Import flows from industry 7 (NOM)
 IDENTITY> z_im_99
 EQ> z_im_99 = zk_im_99 * pim_9
-
-COMMENT> Import flows from industry 2 (NOM)
-IDENTITY> z_im_9_tot
-EQ> z_im_9_tot= z_im_19 + z_im_29 + z_im_39 + z_im_49 + z_im_59 + z_im_69 + z_im_79 + z_im_89 + z_im_99
 
 
 COMMENT> ########################################################### Unspecified imports ###################################################
@@ -4809,47 +4765,9 @@ EQ> c_tot = c_im_tot + c_dom_tot
 COMMENT> ####################################### Government spending #####################################################
 
 
-
 COMMENT> Government spendings in industries
-IDENTITY> govk_1
-EQ> govk_1 = s_govk_1 * govk_tot
-
-COMMENT> Government spendings in industries
-IDENTITY> govk_2
-EQ> govk_2 = s_govk_2 * govk_tot
-
-COMMENT> Government spendings in industries
-IDENTITY> govk_3
-EQ> govk_3 = s_govk_3 * govk_tot
-
-COMMENT> Government spendings in industries
-IDENTITY> govk_4
-EQ> govk_4 = s_govk_4 * govk_tot
-
-COMMENT> Government spendings in industries
-IDENTITY> govk_5
-EQ> govk_5 = s_govk_5 * govk_tot
-
-COMMENT> Government spendings in industries
-IDENTITY> govk_6
-EQ> govk_6 = s_govk_6 * govk_tot
-
-COMMENT> Government spendings in industries
-IDENTITY> govk_7
-EQ> govk_7 = s_govk_7 * govk_tot
-
-COMMENT> Government spendings in industries
-IDENTITY> govk_8
-EQ> govk_8 = s_govk_8 * govk_tot
-
-COMMENT> Government spendings in industries
-IDENTITY> govk_9
-EQ> govk_9 = s_govk_9 * govk_tot
-
-
-COMMENT> Investments Unspecified imports
-IDENTITY> govk_im_un
-EQ> govk_im_un = s_govk_im_un*govk_tot
+IDENTITY> govk_tot
+EQ> govk_tot = govk_1 + govk_2 + govk_3 + govk_4 + govk_5 + govk_6 + govk_7 + govk_8 + govk_9 + govk_im_un
 
 
 COMMENT> Government spending on Domestic products in industry 1
@@ -5046,6 +4964,7 @@ TSRANGE 1997 1 2020 1
 EQ> TSDELTALOG(invk_tot) = beta_23 * TSDELTALOG(TSLAG(yk/K_nfc_k,1)) + beta_24* LOG(TSLAG(invk_tot,1)) + beta_25* TSLAG(ps,1)
 COEFF> beta_23 beta_24 beta_25
 STORE> coe(3)
+
 
 
 COMMENT> Use share to claculate total investments in industry 1
@@ -5270,228 +5189,51 @@ EQ> invk_im_tot = invk_im_1 + invk_im_2 + invk_im_3 + invk_im_4 + invk_im_5 + in
 COMMENT> ####################################### Inventories (exogenous for now) #####################################################
 
 
-COMMENT> Government spendings in industries
-IDENTITY> inventk_1
-EQ> inventk_1 = s_inventk_1 * inventk_tot
-
-COMMENT> inventernment spendings in industries
-IDENTITY> inventk_2
-EQ> inventk_2 = s_inventk_2 * inventk_tot
-
-COMMENT> inventernment spendings in industries
-IDENTITY> inventk_3
-EQ> inventk_3 = s_inventk_3 * inventk_tot
-
-COMMENT> inventernment spendings in industries
-IDENTITY> inventk_4
-EQ> inventk_4 = s_inventk_4 * inventk_tot
-
-COMMENT> inventernment spendings in industries
-IDENTITY> inventk_5
-EQ> inventk_5 = s_inventk_5 * inventk_tot
-
-COMMENT> inventernment spendings in industries
-IDENTITY> inventk_6
-EQ> inventk_6 = s_inventk_6 * inventk_tot
-
-COMMENT> inventernment spendings in industries
-IDENTITY> inventk_7
-EQ> inventk_7 = s_inventk_7 * inventk_tot
-
-COMMENT> inventernment spendings in industries
-IDENTITY> inventk_8
-EQ> inventk_8 = s_inventk_8 * inventk_tot
-
-COMMENT> inventernment spendings in industries
-IDENTITY> inventk_9
-EQ> inventk_9 = s_inventk_9 * inventk_tot
-
-
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_1
-EQ> inventk_dom_1 = (1-phi_invent_1)* inventk_1
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_2
-EQ> inventk_dom_2 = (1-phi_invent_2)* inventk_2
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_3
-EQ> inventk_dom_3 = (1-phi_invent_3)* inventk_3
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_4
-EQ> inventk_dom_4 = (1-phi_invent_4)* inventk_4
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_5
-EQ> inventk_dom_5 = (1-phi_invent_5)* inventk_5
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_6
-EQ> inventk_dom_6 = (1-phi_invent_6)* inventk_6
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_7
-EQ> inventk_dom_7 = (1-phi_invent_7)* inventk_7
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_8
-EQ> inventk_dom_8 = (1-phi_invent_8)* inventk_8
-
-COMMENT> inventernment spending on Domestic products in industry 1
-IDENTITY> inventk_dom_9
-EQ> inventk_dom_9 = (1-phi_invent_9)* inventk_9
 
 
 
 
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_1
-EQ> inventk_im_1 = (phi_invent_1)* inventk_1
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_2
-EQ> inventk_im_2 = (phi_invent_2)* inventk_2
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_3
-EQ> inventk_im_3 = (phi_invent_3)* inventk_3
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_4
-EQ> inventk_im_4 = (phi_invent_4)* inventk_4
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_5
-EQ> inventk_im_5 = (phi_invent_5)* inventk_5
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_6
-EQ> inventk_im_6 = (phi_invent_6)* inventk_6
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_7
-EQ> inventk_im_7 = (phi_invent_7)* inventk_7
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_8
-EQ> inventk_im_8 = (phi_invent_8)* inventk_8
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_9
-EQ> inventk_im_9 = (phi_invent_9)* inventk_9
-
-
-COMMENT>  inventernment spending on Imported products in industry 1
-IDENTITY> inventk_im_un
-EQ> inventk_im_un = s_inventk_im_un* inventk_tot
-
-
-COMMENT> inventernment spending on domestic products in industries (Real)
-IDENTITY> inventk_dom_tot
-EQ> inventk_dom_tot = inventk_dom_1 + inventk_dom_2 + inventk_dom_3 + inventk_dom_4 + inventk_dom_5 + inventk_dom_6 + inventk_dom_7 + inventk_dom_8 + inventk_dom_9
-
-
-COMMENT> inventernment spending on imported products in industries (Real)
-IDENTITY> inventk_im_tot
-EQ> inventk_im_tot = inventk_im_1 + inventk_im_2 + inventk_im_3 + inventk_im_4 + inventk_im_5 + inventk_im_6 + inventk_im_7 + inventk_im_8 + inventk_im_9 + inventk_im_un
-
-
-
-COMMENT> inventernment spending on domestic products industry 1 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_1
 EQ> invent_dom_1 = inventk_dom_1*pout_1
 
-COMMENT> inventernment spending on domestic products industry 2 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_2
 EQ> invent_dom_2 = inventk_dom_2*pout_2
 
-COMMENT> inventernment spending on domestic products industry 3 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_3
 EQ> invent_dom_3 = inventk_dom_3*pout_3
 
-COMMENT> inventernment spending on domestic products industry 4 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_4
 EQ> invent_dom_4 = inventk_dom_4*pout_4
 
-COMMENT> inventernment spending on domestic products industry 5 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_5
 EQ> invent_dom_5 = inventk_dom_5*pout_5
 
-COMMENT> inventernment spending on domestic products industry 6 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_6
 EQ> invent_dom_6 = inventk_dom_6*pout_6
 
-COMMENT> inventernment spending on domestic products industry 7 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_7
 EQ> invent_dom_7 = inventk_dom_7*pout_7
 
-COMMENT> inventernment spending on domestic products industry 8 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_8
 EQ> invent_dom_8 = inventk_dom_8*pout_8
 
-COMMENT> inventernment spending on domestic products industry 9 (Nominal)
+COMMENT> Changes in inventories for domestic products industry 1 (Nominal)
 IDENTITY> invent_dom_9
 EQ> invent_dom_9 = inventk_dom_9*pout_9
 
 
 
-
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_1
-EQ> invent_im_1 = inventk_im_1*pim_1
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_2
-EQ> invent_im_2 = inventk_im_2*pim_2
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_3
-EQ> invent_im_3 = inventk_im_3*pim_3
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_4
-EQ> invent_im_4 = inventk_im_4*pim_4
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_5
-EQ> invent_im_5 = inventk_im_5*pim_5
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_6
-EQ> invent_im_6 = inventk_im_6*pim_6
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_7
-EQ> invent_im_7 = inventk_im_7*pim_7
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_8
-EQ> invent_im_8 = inventk_im_8*pim_8
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_9
-EQ> invent_im_9 = inventk_im_9*pim_9
-
-
-
-COMMENT> inventernment spending on imported products industry 1 (Nominal)
-IDENTITY> invent_im_un
-EQ> invent_im_un = inventk_im_un*pim_un
-
-
-
-COMMENT> inventernment spending on domestic products in industries
+COMMENT> Government spending on domestic products in industries
 IDENTITY> invent_dom_tot
 EQ> invent_dom_tot = invent_dom_1 + invent_dom_2 + invent_dom_3 + invent_dom_4 + invent_dom_5 + invent_dom_6 + invent_dom_7 + invent_dom_8 + invent_dom_9
-
-
-COMMENT> inventernment spending on imported products in industries
-IDENTITY> invent_im_tot
-EQ> invent_im_tot = invent_im_1 + invent_im_2 + invent_im_3 + invent_im_4 + invent_im_5 + invent_im_6 + invent_im_7 + invent_im_8 + invent_im_9 + invent_im_un
 
 
 
@@ -5577,15 +5319,8 @@ IDENTITY> exk_9
 EQ> exk_9 = market_share_9 * total_imp_9
 
 
-COMMENT> 
-IDENTITY> exk_im_un
-EQ> exk_im_un = exk_tot*s_exk_im_un
 
-
-
-COMMENT> 
-IDENTITY> exk_tot
-EQ> exk_tot = exk_9 + exk_8 + exk_7 + exk_6 + exk_5 + exk_4 + exk_3 + exk_2 + exk_1 + exk_im_un
+COMMENT> Total exports Unspecified imports (exk_im_un = exk_tot*s_exk_im_un) but exogenous now!
 
 
 
@@ -5856,137 +5591,52 @@ IDENTITY> emp_tot
 EQ> emp_tot = emp_1 + emp_2 + emp_3 + emp_4 + emp_5 + emp_6 + emp_7 + emp_8 + emp_9
 
 
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_1
-EQ> w_nfc_p_1 = emp_1 * w_1
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_2
-EQ> w_nfc_p_2 = emp_2 * w_2
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_3
-EQ> w_nfc_p_3 = emp_3 * w_3
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_4
-EQ> w_nfc_p_4 = emp_4 * w_4
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_5
-EQ> w_nfc_p_5 = emp_5 * w_5 
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_6
-EQ> w_nfc_p_6 = emp_6 * w_6
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_7
-EQ> w_nfc_p_7 = emp_7 * w_7
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_8
-EQ> w_nfc_p_8 = emp_8 * w_8
-
-COMMENT> Employment in industry 1
-IDENTITY> w_nfc_p_9
-EQ> w_nfc_p_9 = emp_9 * w_9
-
-
-
-
-COMMENT> 
-IDENTITY> avg_w_t
-EQ> avg_w_t = TSLAG(avg_w,1) * (1+TSLAG(TSDELTALOG(ppcon_tax),1))
-
-
-
-COMMENT> 
-BEHAVIORAL> avg_w
-TSRANGE 2000 1 2020 1
-EQ> TSDELTALOG(avg_w) = beta_0 + beta_1 * TSLAG(TSDELTALOG(avg_w),2) + beta_2 * TSLAG(TSDELTALOG(avg_w_t),2)  + beta_3 * TSLAG(LOG(avg_w),1) + beta_4 * TSLAG(LOG(avg_w_t),1) + beta_5 * TSLAG((avg_prodk),1)
-COEFF> beta_0 beta_1 beta_2 beta_3 beta_4 beta_5
-STORE> coe(1)
-
-
-
-
-COMMENT> 
-BEHAVIORAL> w_1
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_1) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_2
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_2) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_3
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_3) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_4
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_4) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_5
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_5) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_6
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_6) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_7
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_7) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_8
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_8) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_9
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_9) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-
-
-
 COMMENT> Total Unemployed
 IDENTITY> unemp
 EQ> unemp = LF-emp_tot 
-
+Comment> We can determine ourself when we would like to go back to aggregated level.
 
 
 COMMENT> Total Unemployed
 IDENTITY> unemp_rate
 EQ> unemp_rate = unemp/LF
+
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_1
+EQ> w_nfc_p_1 = w_1*emp_1
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_2
+EQ> w_nfc_p_2 = w_2*emp_2
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_3
+EQ> w_nfc_p_3 = w_3*emp_3
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_4
+EQ> w_nfc_p_4 = w_4*emp_4
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_5
+EQ> w_nfc_p_5 = w_5*emp_5
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_6
+EQ> w_nfc_p_6 = w_6*emp_6
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_7
+EQ> w_nfc_p_7 = w_7*emp_7
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_8
+EQ> w_nfc_p_8 = w_8*emp_8
+
+COMMENT> Wages paid by non financial firms
+IDENTITY> w_nfc_p_9
+EQ> w_nfc_p_9 = w_9*emp_9
 
 
 
@@ -6225,7 +5875,8 @@ EQ> z_dom_9 = z_dom_19 + z_dom_29 + z_dom_39 + z_dom_49 + z_dom_59 + z_dom_69 + 
 
 COMMENT> Price on output industry 1
 IDENTITY> pout_1
-EQ> pout_1 = (1+Mark_up_1)*(z_dom_1 + im_1 + z_im_d_1 + ct_1 + vat_1 + tot_env_tax_exc_rent_1_base + tot_env_diff + opt_exc_env_tax_1 + w_nfc_p_1)/Xk_dom_1
+EQ> pout_1 = (1+Mark_up_1)*(z_dom_1 + im_1 + Prod_tax_1 + w_nfc_p_1)/Xk_dom_1
+
 
 COMMENT> Price on output industry 1
 IDENTITY> pout_2
@@ -9224,23 +8875,9 @@ COMMENT> profit share
 IDENTITY> ps
 EQ> ps = 1 - ws
 
-
-COMMENT> Investments made by Non-financial firms
-IDENTITY> i_h
-EQ> i_h = i * i_h_share
-
-COMMENT> Investments made by Non-financial firms
-IDENTITY> i_g
-EQ> i_g = i * i_g_share
-
-COMMENT> Investments made by Non-financial firms
-IDENTITY> i_fc
-EQ> i_fc = i * i_fc_share
-
 COMMENT> Investments made by Non-financial firms
 IDENTITY> i_nfc
 EQ> i_nfc = i - (i_fc + i_g + i_h)
-
 
 
 COMMENT> real investment 
@@ -9248,21 +8885,9 @@ IDENTITY> ik
 EQ> ik = i/pin
 
 
-COMMENT> 
+COMMENT> Investments made by Non-financial firms
 IDENTITY> invent_nfc
 EQ> invent_nfc = invent - (invent_fc + invent_g + invent_h)
-
-COMMENT> 
-IDENTITY> invent_h
-EQ> invent_h = invent * invent_h_share
-
-COMMENT> 
-IDENTITY> invent_g
-EQ> invent_g = invent * invent_g_share
-
-COMMENT> 
-IDENTITY> invent_fc
-EQ> invent_fc = invent * invent_fc_share
 
 COMMENT> real investment 
 IDENTITY> inventk
@@ -9295,7 +8920,6 @@ EQ> noir_nfc = TSLAG(insu_rate,1)*(TSLAG(ninsu_nfc,1)) + noir_nfc_adj
 COMMENT> gross income NFC (Changing names of property income variables) (more variables in the end?)
 IDENTITY> y_nfc
 EQ> y_nfc = y + b2_nfc_r - b2_tot - (n_prod_tax_tot + opt_tot) - w_nfc + nint_nfc + ndiv_nfc + noir_nfc + (re_fdi_r_nfc - re_fdi_p_nfc)  + oct_nfc
-
 
 COMMENT> 
 BEHAVIORAL> i_tax_nfc
@@ -9350,14 +8974,12 @@ COMMENT> Ratio used in behavioural equation
 IDENTITY> nloa_nfc
 EQ> nloa_nfc = -nloa_ratio_nfc*K_nfc
 
-
 COMMENT> 
 BEHAVIORAL> nloa_ratio_nfc
 TSRANGE 1996 1 2020 1
 EQ> nloa_ratio_nfc = p_09 + p_010*TSLAG((i_nfc/s_nfc),1) + p_011*TSLAG(iloan,1)
 COEFF> p_09 p_010 p_011
 STORE>  coe(990)
-
 
 COMMENT> HH net assets Fl.3
 IDENTITY> nloa_nfc_tr
@@ -9402,7 +9024,10 @@ COMMENT> #################################### Households #######################
 
 COMMENT> #################################### Real side  ###############################################
 
+COMMENT> property income H (Sat ind nedenfor og opdateret navne) propinc_r_h = int_r_h + div_r_h + ins_r_h + res_r_h
+ 
 
+COMMENT> property expenditure H (sat ind nedenfor og opdateret navne samt tilføjet flere) propinc_p_h = int_p_h + res_p_h
 
 
 COMMENT> Ratio used in behavioural equation
@@ -9413,14 +9038,12 @@ COMMENT>
 IDENTITY> neq_h_tr
 EQ> neq_h_tr = TSDELTA(neq_h) - neq_h_rv
 
-
 COMMENT> 
 BEHAVIORAL> eq_h_ratio
 TSRANGE 1998 1 2020 1
 EQ> TSDELTA(eq_h_ratio) =  p_999 + p_998 * TSDELTA((TSLAG(ndiv_h,1)+TSLAG(neq_h_rv,1))/TSLAG(neq_h,2)) + p_997* TSLAG(eq_h_ratio,1) + p_996*((TSLAG(ndiv_h,2)+TSLAG(neq_h_rv,2))/TSLAG(neq_h,3))
 COEFF> p_999 p_998 p_997 p_996
 STORE>  coe(5)
-
 
 COMMENT> Ratio used in behavioural equation
 IDENTITY> nloa_h
@@ -9432,13 +9055,13 @@ IDENTITY> nloa_h_tr
 EQ> nloa_h_tr = TSDELTA(nloa_h) - nloa_h_rv
 
 
+
 COMMENT> 
 BEHAVIORAL> loa_h_ratio
 TSRANGE 1996 1 2020 1
 EQ> loa_h_ratio = p_9*TSLAG(loa_h_ratio,1) + p_10*(i_h/yd_h) + p_11*TSLAG(iloan,0)
 COEFF> p_9 p_10 p_11
 STORE>  coe(99)
-
 
 
 COMMENT> income on capital related to interest
@@ -9459,7 +9082,6 @@ COMMENT> Gross income H  (Mangler den her nogle?)
 IDENTITY> y_h
 EQ> y_h = w_h_r + b2_h_r + nint_h + ndiv_h + re_fdi_r_h + noir_h - scon_p_h + sben_r_h + oct_h
 
-
 COMMENT> Income taxes
 BEHAVIORAL> i_tax_h
 TSRANGE 1995 1 2020 1
@@ -9472,6 +9094,10 @@ COMMENT> Gross income H  (Mangler den her nogle?)
 IDENTITY> yd_h
 EQ> yd_h = y_h - i_tax_h
 
+
+
+
+COMMENT> Disposable income (indsætter sidste del i ovenstående) yd_h = yh_h + tax_h - scon_h_p + sben_h_r + oct_h
 
 
 COMMENT> real disposable income
@@ -9578,6 +9204,11 @@ COMMENT> ######################################## Real side ####################
 
 
 
+COMMENT> property income F (Indsættes nedenfor) propinc_r_fc = int_r_fc + div_r_fc + ins_r_fc + res_r_fc
+
+
+COMMENT> property expenditure F (Indsættes nedenfor) propinc_p_fc = int_p_fc + div_p_fc + ins_p_fc + res_p_fc
+
 
 COMMENT> income on capital related to interest
 IDENTITY> nint_fc
@@ -9596,7 +9227,6 @@ COMMENT> Gross income F
 IDENTITY> y_fc
 EQ> y_fc = b2_fc_r + nint_fc + ndiv_fc + noir_fc + (re_fdi_r_fc - re_fdi_p_fc)  + scon_r_fc - sben_p_fc + oct_fc 
 
-
 COMMENT> 
 BEHAVIORAL> i_tax_fc
 TSRANGE 1995 1 2020 1
@@ -9604,11 +9234,11 @@ EQ> i_tax_fc =  P_1003* y_fc
 COEFF> P_1003
 STORE> coe(130)
 
-
 COMMENT> Gross income F
 IDENTITY> yd_fc
 EQ> yd_fc = y_fc - i_tax_fc 
 
+COMMENT> Disposable income F (indsættes ovenfor) yd_fc = yh_fc + tax_fc + scon_fc_r - sben_fc_p + oct_fc
 
 COMMENT> Savings F
 IDENTITY> s_fc
@@ -9704,6 +9334,7 @@ EQ> ncred_fc = TSLAG(ncred_fc,1) + ncred_fc_tr + ncred_fc_rv
 
 
 
+COMMENT>############################################# End ########################################
 
 COMMENT> 
 IDENTITY> fnw_fc
@@ -9720,6 +9351,10 @@ COMMENT> ######################################## GOVT #########################
 
 COMMENT> ######################################## Real side
 
+COMMENT> property income G (indsættes nedenfor) propinc_r_g = int_r_g + div_r_g + res_r_fc
+
+
+COMMENT> property expenditure G (indsættes nedenfor) propinc_p_g = int_p_g + res_p_g
 
 
 COMMENT> Total commodity taxes 
@@ -9904,6 +9539,7 @@ COMMENT>
 IDENTITY> c_vat
 EQ> c_vat = c_oth_vat + c_110_vat + c_120_vat + c_130_vat + c_140_vat + c_160_vat + c_180_vat
 
+
 COMMENT> 
 IDENTITY> c_envT
 EQ> c_envT = c_oth_envT + c_110_envT + c_120_envT + c_130_envT + c_140_envT + c_160_envT + c_180_envT
@@ -9929,6 +9565,7 @@ EQ> ex_vat =  vat_rate_ex * ex_dom_tot
 COMMENT> Total Value added taxes
 IDENTITY> vat_tot
 EQ> vat_tot =  vat_1 + vat_2 + vat_3 + vat_4 + vat_5 + vat_6 + vat_7 + vat_8 + vat_9 + c_vat + gov_vat + inv_vat + invent_vat + ex_vat
+
 
 COMMENT> Total Value added taxes
 IDENTITY> envT_tot
@@ -10065,288 +9702,13 @@ EQ> opt_tot =  opt_1 + opt_2 + opt_3 + opt_4 + opt_5 + opt_6 + opt_7 + opt_8 + o
 
 
 COMMENT> Import duties
-IDENTITY> z_im_d_1
-EQ> z_im_d_1 =  z_im_d_rate_1 * z_im_1_tot
-
-COMMENT> Import duties
-IDENTITY> z_im_d_2
-EQ> z_im_d_2 =  z_im_d_rate_2 * z_im_2_tot
-
-COMMENT> Import duties
-IDENTITY> z_im_d_3
-EQ> z_im_d_3 =  z_im_d_rate_3 * z_im_3_tot
-
-COMMENT> Import duties
-IDENTITY> z_im_d_4
-EQ> z_im_d_4 =  z_im_d_rate_4 * z_im_4_tot
-
-COMMENT> Import duties
-IDENTITY> z_im_d_5
-EQ> z_im_d_5 =  z_im_d_rate_5 * z_im_5_tot
-
-COMMENT> Import duties
-IDENTITY> z_im_d_6
-EQ> z_im_d_6 =  z_im_d_rate_6 * z_im_6_tot
-
-COMMENT> Import duties
-IDENTITY> z_im_d_7
-EQ> z_im_d_7 =  z_im_d_rate_7 * z_im_7_tot
-
-COMMENT> Import duties
-IDENTITY> z_im_d_8
-EQ> z_im_d_8 =  z_im_d_rate_8 * z_im_8_tot
-
-COMMENT> Import duties
-IDENTITY> z_im_d_9
-EQ> z_im_d_9 =  z_im_d_rate_9 * z_im_9_tot
-
-
-
-
-COMMENT> Import duties
-IDENTITY> c_110_im_d_tot
-EQ> c_110_im_d_tot =  c_110_im_d_rate * c_110_im_tot
-
-COMMENT> Import duties
-IDENTITY> c_120_im_d_tot
-EQ> c_120_im_d_tot =  c_120_im_d_rate * c_120_im_tot
-
-COMMENT> Import duties
-IDENTITY> c_130_im_d_tot
-EQ> c_130_im_d_tot =  c_130_im_d_rate * c_130_im_tot
-
-COMMENT> Import duties
-IDENTITY> c_140_im_d_tot
-EQ> c_140_im_d_tot =  c_140_im_d_rate * c_140_im_tot
-
-COMMENT> Import duties
-IDENTITY> c_160_im_d_tot
-EQ> c_160_im_d_tot =  c_160_im_d_rate * c_160_im_tot
-
-COMMENT> Import duties
-IDENTITY> c_180_im_d_tot
-EQ> c_180_im_d_tot =  c_180_im_d_rate * c_180_im_tot
-
-COMMENT> Import duties
-IDENTITY> c_oth_im_d_tot
-EQ> c_oth_im_d_tot =  c_oth_im_d_rate * c_oth_im_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_tot
-EQ> c_im_d_tot =  c_oth_im_d_tot + c_110_im_d_tot + c_120_im_d_tot + c_130_im_d_tot + c_140_im_d_tot + c_160_im_d_tot + c_180_im_d_tot
-
-
-COMMENT> Import duties
-IDENTITY> c_im_d_1
-EQ> c_im_d_1 =  S_c_im_d_1 * c_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_2
-EQ> c_im_d_2 =  S_c_im_d_2 * c_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_3
-EQ> c_im_d_3 =  S_c_im_d_3 * c_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_4
-EQ> c_im_d_4 =  S_c_im_d_4 * c_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_5
-EQ> c_im_d_5 =  S_c_im_d_5 * c_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_6
-EQ> c_im_d_6 =  S_c_im_d_6 * c_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_7
-EQ> c_im_d_7 =  S_c_im_d_7 * c_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_8
-EQ> c_im_d_8 =  S_c_im_d_8 * c_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> c_im_d_9
-EQ> c_im_d_9 =  S_c_im_d_9 * c_im_d_tot
-
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_tot
-EQ> gov_im_d_tot =  gov_im_d_rate * gov_im_tot
-
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_1
-EQ> gov_im_d_1 =  S_gov_im_d_1 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_2
-EQ> gov_im_d_2 =  S_gov_im_d_2 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_3
-EQ> gov_im_d_3 =  S_gov_im_d_3 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_4
-EQ> gov_im_d_4 =  S_gov_im_d_4 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_5
-EQ> gov_im_d_5 =  S_gov_im_d_5 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_6
-EQ> gov_im_d_6 =  S_gov_im_d_6 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_7
-EQ> gov_im_d_7 =  S_gov_im_d_7 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_8
-EQ> gov_im_d_8 =  S_gov_im_d_8 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> gov_im_d_9
-EQ> gov_im_d_9 =  S_gov_im_d_9 * gov_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_tot
-EQ> inv_im_d_tot =  inv_im_d_rate * inv_im_tot
-
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_1
-EQ> inv_im_d_1 =  S_inv_im_d_1 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_2
-EQ> inv_im_d_2 =  S_inv_im_d_2 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_3
-EQ> inv_im_d_3 =  S_inv_im_d_3 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_4
-EQ> inv_im_d_4 =  S_inv_im_d_4 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_5
-EQ> inv_im_d_5 =  S_inv_im_d_5 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_6
-EQ> inv_im_d_6 =  S_inv_im_d_6 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_7
-EQ> inv_im_d_7 =  S_inv_im_d_7 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_8
-EQ> inv_im_d_8 =  S_inv_im_d_8 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> inv_im_d_9
-EQ> inv_im_d_9 =  S_inv_im_d_9 * inv_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_tot
-EQ> invent_im_d_tot =  invent_im_d_rate * invent_im_tot
-
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_1
-EQ> invent_im_d_1 =  S_invent_im_d_1 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_2
-EQ> invent_im_d_2 =  S_invent_im_d_2 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_3
-EQ> invent_im_d_3 =  S_invent_im_d_3 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_4
-EQ> invent_im_d_4 =  S_invent_im_d_4 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_5
-EQ> invent_im_d_5 =  S_invent_im_d_5 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_6
-EQ> invent_im_d_6 =  S_invent_im_d_6 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_7
-EQ> invent_im_d_7 =  S_invent_im_d_7 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_8
-EQ> invent_im_d_8 =  S_invent_im_d_8 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> invent_im_d_9
-EQ> invent_im_d_9 =  S_invent_im_d_9 * invent_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_tot
-EQ> ex_im_d_tot =  ex_im_d_rate * ex_im_tot
-
-
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_1
-EQ> ex_im_d_1 =  S_ex_im_d_1 * ex_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_2
-EQ> ex_im_d_2 =  S_ex_im_d_2 * ex_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_3
-EQ> ex_im_d_3 =  S_ex_im_d_3 * ex_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_4
-EQ> ex_im_d_4 =  S_ex_im_d_4 * ex_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_5
-EQ> ex_im_d_5 =  S_ex_im_d_5 * ex_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_6
-EQ> ex_im_d_6 =  S_ex_im_d_6 * ex_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_7
-EQ> ex_im_d_7 =  S_ex_im_d_7 * ex_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_8
-EQ> ex_im_d_8 =  S_ex_im_d_8 * ex_im_d_tot
-
-COMMENT> Import duties
-IDENTITY> ex_im_d_9
-EQ> ex_im_d_9 =  S_ex_im_d_9 * ex_im_d_tot
-
-
-COMMENT> Import duties
 IDENTITY> im_d_tot
 EQ> im_d_tot =  z_im_d_1 + z_im_d_2 + z_im_d_3 + z_im_d_4 + z_im_d_5 + z_im_d_6 + z_im_d_7 + z_im_d_8 + z_im_d_9 + c_im_d_tot + gov_im_d_tot + inv_im_d_tot + invent_im_d_tot + ex_im_d_tot
 
 
 COMMENT> Total net production taxes paid by firms
 IDENTITY> n_prod_tax_tot
-EQ> n_prod_tax_tot =  ct_tot + vat_tot + im_d_tot
+EQ> n_prod_tax_tot =  ct_tot + vat_tot + im_d_tot + envT_tot
 
 
 COMMENT> Total import taxes paid
@@ -10403,6 +9765,10 @@ EQ> nl_g = s_g - i_g - invent_g - np_g - ct_g
 COMMENT> ######################################## Financial side  ##################################
 
 
+
+COMMENT> Financial Sectoral balance (old) fnl_g = iba_g_tr + eq_g_tr + sec_g_tr + l_g_tr + ins_g_tr
+
+
 COMMENT> Financial Sectoral balance G (new) disaggregated
 IDENTITY> fnl_g
 EQ> fnl_g = ngold_g_tr  + ndepo_g_tr   + nsec_g_tr  + nloa_g_tr  + neq_g_tr   + ninsu_g_tr  + ndir_g_tr  + ncred_g_tr  
@@ -10455,6 +9821,13 @@ IDENTITY> ncred_g
 EQ> ncred_g = TSLAG(ncred_g,1) + ncred_g_tr + ncred_g_rv
 
 
+
+
+COMMENT>############################################# End ########################################
+
+
+COMMENT> ######################################## Wealth ######################################
+
 COMMENT>  
 IDENTITY> fnw_g
 EQ> fnw_g = ngold_g  + ndepo_g   + nsec_g  + nloa_g  + neq_g   + ninsu_g  + ndir_g  + ncred_g 
@@ -10469,6 +9842,10 @@ COMMENT> ######################################## Rest of the world ############
 
 COMMENT> ######################################## Real side
 
+COMMENT> property income Row (Indsættes nedenfor) propinc_r_row = int_r_row + div_r_row + ins_r_row + res_r_row
+
+
+COMMENT> property expenditure Row (Indsættes nedenfor) propinc_p_row = int_p_row + div_p_row + ins_p_row + res_p_row
 
 
 COMMENT> income on capital related to interest
@@ -10500,6 +9877,8 @@ IDENTITY> fnl_row
 EQ> fnl_row = ngold_row_tr  + ndepo_row_tr   + nsec_row_tr  + nloa_row_tr + neq_row_tr   + ninsu_row_tr  + ndir_row_tr  + ncred_row_tr 
 
 
+
+COMMENT>#################################### Assets vs liabilities ##########################################
 
 COMMENT> Gold assets FA.1
 IDENTITY> ngold_row
@@ -10556,6 +9935,10 @@ IDENTITY> ncred_row_tr
 EQ> ncred_row_tr = - (ncred_nfc_tr + ncred_fc_tr + ncred_g_tr + ncred_h_tr)
 
 
+COMMENT>############################################# End ########################################
+
+
+COMMENT> ######################## Wealth ###################################
 
 COMMENT> 
 IDENTITY> fnw_row

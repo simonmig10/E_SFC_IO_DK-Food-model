@@ -282,7 +282,7 @@ S_model=ESTIMATE(S_model
 # Simulate the model (following shock)
 Exo_model <- SIMULATE(S_model
                     ,simType='dynamic'
-                    ,TSRANGE=c(2000,1,2020,1)
+                    ,TSRANGE=c(1998,1,2020,1)
                     ,simConvergence=0.0001
                     ,simIterLimit=200
                     ,verbose = F
@@ -469,7 +469,7 @@ NOTE: the simulation will say no convergence as the shock is introduced. This is
 # Simulate the model (following shock)
 Exo_model_S1 <- SIMULATE(S_model
                     ,simType='dynamic'
-                    ,TSRANGE=c(2000,1,2020,1)
+                    ,TSRANGE=c(1998,1,2020,1)
                     ,simConvergence=0.0001
                     ,simIterLimit=200
                     ,ConstantAdjustment=constantAdjList_s1
@@ -513,7 +513,7 @@ Scenario_2 = TIMESERIES(Scenario_2_shock+1 ,START=c(2010,1),  FREQ=1)
 # Simulate the model (following shock)
 Exo_model_S2 <- SIMULATE(S_model
                     ,simType='dynamic'
-                    ,TSRANGE=c(2000,1,2020,1)
+                    ,TSRANGE=c(1998,1,2020,1)
                     ,simConvergence=0.0001
                     ,simIterLimit=200
                     ,ConstantAdjustment=constantAdjList_s2
@@ -557,7 +557,7 @@ Scenario_1 = TIMESERIES(Scenario_1_shock+1 ,START=c(2010,1),  FREQ=1)
 # Simulate the model (following shock)
 Exo_model_S4 <- SIMULATE(S_model
                     ,simType='dynamic'
-                    ,TSRANGE=c(2000,1,2020,1)
+                    ,TSRANGE=c(1998,1,2020,1)
                     ,simConvergence=0.0001
                     ,simIterLimit=200
                     ,ConstantAdjustment=constantAdjList_s4
@@ -602,7 +602,7 @@ Scenario_1 = TIMESERIES(Scenario_1_shock+1 ,START=c(2010,1),  FREQ=1)
 # Simulate the model (following shock)
 Exo_model_S5 <- SIMULATE(S_model
                     ,simType='dynamic'
-                    ,TSRANGE=c(2000,1,2020,1)
+                    ,TSRANGE=c(1998,1,2020,1)
                     ,simConvergence=0.0001
                     ,simIterLimit=200
                     ,ConstantAdjustment=constantAdjList_s5
@@ -1800,25 +1800,25 @@ Delta_GHG_tot_cusum_DK_S5=cumsum(Delta_GHG_tot_DK_S5)
 ```{r}
 
 
-Delta_GHG_tot_cusum_row_S1=TIMESERIES(c(Delta_GHG_tot_cusum_row_S1), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_row_S2=TIMESERIES(c(Delta_GHG_tot_cusum_row_S2), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_row_S4=TIMESERIES(c(Delta_GHG_tot_cusum_row_S4), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_row_S5=TIMESERIES(c(Delta_GHG_tot_cusum_row_S5), START = c(2000,1),FREQ=1)
+Delta_GHG_tot_cusum_row_S1=TIMESERIES(c(Delta_GHG_tot_cusum_row_S1), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_row_S2=TIMESERIES(c(Delta_GHG_tot_cusum_row_S2), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_row_S4=TIMESERIES(c(Delta_GHG_tot_cusum_row_S4), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_row_S5=TIMESERIES(c(Delta_GHG_tot_cusum_row_S5), START = c(1998,1),FREQ=1)
 
-Delta_GHG_tot_cusum_DK_S1=TIMESERIES(c(Delta_GHG_tot_cusum_DK_S1), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_DK_S2=TIMESERIES(c(Delta_GHG_tot_cusum_DK_S2), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_DK_S4=TIMESERIES(c(Delta_GHG_tot_cusum_DK_S4), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_DK_S5=TIMESERIES(c(Delta_GHG_tot_cusum_DK_S5), START = c(2000,1),FREQ=1)
+Delta_GHG_tot_cusum_DK_S1=TIMESERIES(c(Delta_GHG_tot_cusum_DK_S1), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_DK_S2=TIMESERIES(c(Delta_GHG_tot_cusum_DK_S2), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_DK_S4=TIMESERIES(c(Delta_GHG_tot_cusum_DK_S4), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_DK_S5=TIMESERIES(c(Delta_GHG_tot_cusum_DK_S5), START = c(1998,1),FREQ=1)
 
-Delta_GHG_tot_cusum_world_S1=TIMESERIES(c(Delta_GHG_tot_cusum_row_S1+Delta_GHG_tot_cusum_DK_S1), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_world_S2=TIMESERIES(c(Delta_GHG_tot_cusum_row_S2+Delta_GHG_tot_cusum_DK_S2), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_world_S4=TIMESERIES(c(Delta_GHG_tot_cusum_row_S4+Delta_GHG_tot_cusum_DK_S4), START = c(2000,1),FREQ=1)
-Delta_GHG_tot_cusum_world_S5=TIMESERIES(c(Delta_GHG_tot_cusum_row_S5+Delta_GHG_tot_cusum_DK_S5), START = c(2000,1),FREQ=1)
+Delta_GHG_tot_cusum_world_S1=TIMESERIES(c(Delta_GHG_tot_cusum_row_S1+Delta_GHG_tot_cusum_DK_S1), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_world_S2=TIMESERIES(c(Delta_GHG_tot_cusum_row_S2+Delta_GHG_tot_cusum_DK_S2), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_world_S4=TIMESERIES(c(Delta_GHG_tot_cusum_row_S4+Delta_GHG_tot_cusum_DK_S4), START = c(1998,1),FREQ=1)
+Delta_GHG_tot_cusum_world_S5=TIMESERIES(c(Delta_GHG_tot_cusum_row_S5+Delta_GHG_tot_cusum_DK_S5), START = c(1998,1),FREQ=1)
 
-Leak_rate_tot_S1=TIMESERIES(c(-Delta_GHG_tot_cusum_row_S1/Delta_GHG_tot_cusum_DK_S1), START = c(2000,1),FREQ=1)
-Leak_rate_tot_S2=TIMESERIES(c(-Delta_GHG_tot_cusum_row_S2/Delta_GHG_tot_cusum_DK_S2), START = c(2000,1),FREQ=1)
-Leak_rate_tot_S4=TIMESERIES(c(-Delta_GHG_tot_cusum_row_S4/Delta_GHG_tot_cusum_DK_S4), START = c(2000,1),FREQ=1)
-Leak_rate_tot_S5=TIMESERIES(c(-Delta_GHG_tot_cusum_row_S5/Delta_GHG_tot_cusum_DK_S5), START = c(2000,1),FREQ=1)
+Leak_rate_tot_S1=TIMESERIES(c(-Delta_GHG_tot_cusum_row_S1/Delta_GHG_tot_cusum_DK_S1), START = c(1998,1),FREQ=1)
+Leak_rate_tot_S2=TIMESERIES(c(-Delta_GHG_tot_cusum_row_S2/Delta_GHG_tot_cusum_DK_S2), START = c(1998,1),FREQ=1)
+Leak_rate_tot_S4=TIMESERIES(c(-Delta_GHG_tot_cusum_row_S4/Delta_GHG_tot_cusum_DK_S4), START = c(1998,1),FREQ=1)
+Leak_rate_tot_S5=TIMESERIES(c(-Delta_GHG_tot_cusum_row_S5/Delta_GHG_tot_cusum_DK_S5), START = c(1998,1),FREQ=1)
 ```
 
 Plotting the leakage rates:
@@ -1870,10 +1870,10 @@ Delta_GDP_tot_cusum_DK_S2=cumsum(Exo_model_S2$simulation$yk*1000000000 - Exo_mod
 Delta_GDP_tot_cusum_DK_S4=cumsum(Exo_model_S4$simulation$yk*1000000000 - Exo_model$simulation$yk*1000000000)
 Delta_GDP_tot_cusum_DK_S5=cumsum(Exo_model_S5$simulation$yk*1000000000 - Exo_model$simulation$yk*1000000000)
 
-Delta_GDP_tot_cusum_DK_S1=TIMESERIES(c(Delta_GDP_tot_cusum_DK_S1), START = c(2000,1),FREQ=1)
-Delta_GDP_tot_cusum_DK_S2=TIMESERIES(c(Delta_GDP_tot_cusum_DK_S2), START = c(2000,1),FREQ=1)
-Delta_GDP_tot_cusum_DK_S4=TIMESERIES(c(Delta_GDP_tot_cusum_DK_S4), START = c(2000,1),FREQ=1)
-Delta_GDP_tot_cusum_DK_S5=TIMESERIES(c(Delta_GDP_tot_cusum_DK_S5), START = c(2000,1),FREQ=1)
+Delta_GDP_tot_cusum_DK_S1=TIMESERIES(c(Delta_GDP_tot_cusum_DK_S1), START = c(1998,1),FREQ=1)
+Delta_GDP_tot_cusum_DK_S2=TIMESERIES(c(Delta_GDP_tot_cusum_DK_S2), START = c(1998,1),FREQ=1)
+Delta_GDP_tot_cusum_DK_S4=TIMESERIES(c(Delta_GDP_tot_cusum_DK_S4), START = c(1998,1),FREQ=1)
+Delta_GDP_tot_cusum_DK_S5=TIMESERIES(c(Delta_GDP_tot_cusum_DK_S5), START = c(1998,1),FREQ=1)
 
 Shadow_price_DK_S1= Delta_GDP_tot_cusum_DK_S1/Delta_GHG_tot_cusum_DK_S1
 Shadow_price_DK_S2= Delta_GDP_tot_cusum_DK_S2/Delta_GHG_tot_cusum_DK_S2

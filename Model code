@@ -126,19 +126,6 @@ COMMENT> We can make a simple shock to the model by increasing government spendi
 IDENTITY> Scenario_5
 EQ> Scenario_5 = Scenario_5*1
 
-COMMENT> ####################################### Shock to interrest rates ##########################################
-
-
-COMMENT> We can make a shock to interest rates
-IDENTITY> Scenario_3
-EQ> Scenario_3 = Scenario_3*1
-
-
-
-
-
-
-
 
 
 

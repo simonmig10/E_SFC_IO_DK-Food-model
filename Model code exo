@@ -852,54 +852,6 @@ EQ> rer_180 = ppcon_180*xr/pim_180
 
 
 
-COMMENT> 
-BEHAVIORAL> phi_c_oth
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_oth) = phi_0 + phi_1*TSLAG(LOG(rer_oth),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> phi_c_110
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_110) = phi_0 + phi_1*TSLAG(LOG(rer_110),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> phi_c_120
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_120) = phi_0 + phi_1*TSLAG(LOG(rer_120),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> phi_c_130
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_130) = phi_0 + phi_1*TSLAG(LOG(rer_130),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> phi_c_140
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_140) = phi_0 + phi_1*TSLAG(LOG(rer_140),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> phi_c_160
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_160) = phi_0 + phi_1*TSLAG(LOG(rer_160),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> phi_c_180
-TSRANGE 1996 1 2020 1
-EQ> LOG(phi_c_180) = phi_0 + phi_1*TSLAG(LOG(rer_180),1)
-COEFF> phi_0 phi_1
-STORE> coe(1)
 
 
 COMMENT> ####################################### IO stuff ##########################################
@@ -3244,12 +3196,6 @@ COMMENT> ####################################### IO final demand stuff #########
 COMMENT> ####################################### Consumption #####################################################
 
 
-COMMENT> 
-BEHAVIORAL> ck_tot
-TSRANGE 1996 1 2020 1
-EQ> TSDELTALOG(ck_tot) =  beta_1 * TSDELTALOG(yd_hk_tax) + beta_2* LOG(TSLAG(ck_tot,1)) + beta_3* LOG(TSLAG(yd_hk_tax,1))+ beta_4*LOG(TSLAG(fnw_hk_tax,1)) + beta_5*time
-COEFF> beta_1 beta_2 beta_3 beta_4 beta_5
-STORE> coe(1)
 
 
 COMMENT> Share of total consumption going to other consumption products
@@ -5040,12 +4986,6 @@ EQ> gov_im_tot = gov_im_1 + gov_im_2 + gov_im_3 + gov_im_4 + gov_im_5 + gov_im_6
 COMMENT> ####################################### Investments #####################################################
 
 
-COMMENT> 
-BEHAVIORAL> invk_tot
-TSRANGE 1997 1 2020 1
-EQ> TSDELTALOG(invk_tot) = beta_23 * TSDELTALOG(TSLAG(yk/K_nfc_k,1)) + beta_24* LOG(TSLAG(invk_tot,1)) + beta_25* TSLAG(ps,1)
-COEFF> beta_23 beta_24 beta_25
-STORE> coe(3)
 
 
 COMMENT> Use share to claculate total investments in industry 1
@@ -5902,78 +5842,8 @@ EQ> avg_w_t = TSLAG(avg_w,1) * (1+TSLAG(TSDELTALOG(ppcon_tax),1))
 
 
 
-COMMENT> 
-BEHAVIORAL> avg_w
-TSRANGE 2000 1 2020 1
-EQ> TSDELTALOG(avg_w) = beta_0 + beta_1 * TSLAG(TSDELTALOG(avg_w),2) + beta_2 * TSLAG(TSDELTALOG(avg_w_t),2)  + beta_3 * TSLAG(LOG(avg_w),1) + beta_4 * TSLAG(LOG(avg_w_t),1) + beta_5 * TSLAG((avg_prodk),1)
-COEFF> beta_0 beta_1 beta_2 beta_3 beta_4 beta_5
-STORE> coe(1)
 
 
-
-
-COMMENT> 
-BEHAVIORAL> w_1
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_1) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_2
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_2) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_3
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_3) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_4
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_4) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_5
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_5) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_6
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_6) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_7
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_7) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_8
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_8) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
-
-COMMENT> 
-BEHAVIORAL> w_9
-TSRANGE 1996 1 2020 1
-EQ> LOG(w_9) =  beta_0 + beta_1 * LOG(avg_w) + beta_2*time
-COEFF> beta_0 beta_1 beta_2
-STORE> coe(1)
 
 
 
@@ -9297,12 +9167,6 @@ IDENTITY> y_nfc
 EQ> y_nfc = y + b2_nfc_r - b2_tot - (n_prod_tax_tot + opt_tot) - w_nfc + nint_nfc + ndiv_nfc + noir_nfc + (re_fdi_r_nfc - re_fdi_p_nfc)  + oct_nfc
 
 
-COMMENT> 
-BEHAVIORAL> i_tax_nfc
-TSRANGE 1995 1 2020 1
-EQ> i_tax_nfc =  P_1002* y_nfc
-COEFF> P_1002
-STORE> coe(120)
 
 
 COMMENT> gross disposable income NFC (Changing names of property income variables) (more variables in the end?)
@@ -9351,12 +9215,7 @@ IDENTITY> nloa_nfc
 EQ> nloa_nfc = -nloa_ratio_nfc*K_nfc
 
 
-COMMENT> 
-BEHAVIORAL> nloa_ratio_nfc
-TSRANGE 1996 1 2020 1
-EQ> nloa_ratio_nfc = p_09 + p_010*TSLAG((i_nfc/s_nfc),1) + p_011*TSLAG(iloan,1)
-COEFF> p_09 p_010 p_011
-STORE>  coe(990)
+
 
 
 COMMENT> HH net assets Fl.3
@@ -9414,12 +9273,7 @@ IDENTITY> neq_h_tr
 EQ> neq_h_tr = TSDELTA(neq_h) - neq_h_rv
 
 
-COMMENT> 
-BEHAVIORAL> eq_h_ratio
-TSRANGE 1998 1 2020 1
-EQ> TSDELTA(eq_h_ratio) =  p_999 + p_998 * TSDELTA((TSLAG(ndiv_h,1)+TSLAG(neq_h_rv,1))/TSLAG(neq_h,2)) + p_997* TSLAG(eq_h_ratio,1) + p_996*((TSLAG(ndiv_h,2)+TSLAG(neq_h_rv,2))/TSLAG(neq_h,3))
-COEFF> p_999 p_998 p_997 p_996
-STORE>  coe(5)
+
 
 
 COMMENT> Ratio used in behavioural equation
@@ -9432,12 +9286,7 @@ IDENTITY> nloa_h_tr
 EQ> nloa_h_tr = TSDELTA(nloa_h) - nloa_h_rv
 
 
-COMMENT> 
-BEHAVIORAL> loa_h_ratio
-TSRANGE 1996 1 2020 1
-EQ> loa_h_ratio = p_9*TSLAG(loa_h_ratio,1) + p_10*(i_h/yd_h) + p_11*TSLAG(iloan,0)
-COEFF> p_9 p_10 p_11
-STORE>  coe(99)
+
 
 
 
@@ -9460,12 +9309,7 @@ IDENTITY> y_h
 EQ> y_h = w_h_r + b2_h_r + nint_h + ndiv_h + re_fdi_r_h + noir_h - scon_p_h + sben_r_h + oct_h
 
 
-COMMENT> Income taxes
-BEHAVIORAL> i_tax_h
-TSRANGE 1995 1 2020 1
-EQ> i_tax_h =  P_1001* y_h
-COEFF> P_1001
-STORE> coe(110)
+
 
 
 COMMENT> Gross income H  (Mangler den her nogle?)
@@ -9597,12 +9441,7 @@ IDENTITY> y_fc
 EQ> y_fc = b2_fc_r + nint_fc + ndiv_fc + noir_fc + (re_fdi_r_fc - re_fdi_p_fc)  + scon_r_fc - sben_p_fc + oct_fc 
 
 
-COMMENT> 
-BEHAVIORAL> i_tax_fc
-TSRANGE 1995 1 2020 1
-EQ> i_tax_fc =  P_1003* y_fc
-COEFF> P_1003
-STORE> coe(130)
+
 
 
 COMMENT> Gross income F
